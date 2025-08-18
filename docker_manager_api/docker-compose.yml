@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  # Define the service for our Docker API server
+  docker-api:
+    build:
+      context: .
+    
+    ports:
+      - "1113:1113"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: unless-stopped
